@@ -1,5 +1,5 @@
 {
-  "name": "btc-converter-cli",
+  "name": "btc-converter-tool",
   "version": "1.0.0",
   "description": "A CLI to convert bitcoin to any provided currency.",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "test:coverage": "nyc npm test"
   },
   "bin": {
-    "btc-converter-cli": "bin/main.js"
+    "btc-converter-tool": "bin/main.js"
   },
   "nyc": {
     "reporter": [
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lcnogueira/btc-converter-cli.git"
+    "url": "git+https://github.com/lcnogueira/btc-converter-tool.git"
   },
   "keywords": [
     "js",
@@ -42,9 +42,9 @@
   "author": "Luiz Cláudio <luizcns18@gmail.com> (https://lcnogueira.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lcnogueira/btc-converter-cli/issues"
+    "url": "https://github.com/lcnogueira/btc-converter-tool/issues"
   },
-  "homepage": "https://github.com/lcnogueira/btc-converter-cli#readme",
+  "homepage": "https://github.com/lcnogueira/btc-converter-tool#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
