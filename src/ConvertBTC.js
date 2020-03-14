@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const chalk = require('chalk');
-const request = require('request');
+const request = require('request-promise-native');
 const ora = require('ora');
 
 dotenv.config();
@@ -19,18 +19,21 @@ function convertBTC(currency = 'USD', amount = 1) {
   };
 
   spinner.start();
-  request(options, (error, response, body) => {
-    let apiResponse;
-    try {
-      apiResponse = JSON.parse(body);
-    } catch (parseError) {
-      console.log(chalk.red('Something went wrong in the API. Try in a few minutes.'));
-      return parseError;
-    } finally {
+
+  return request(options)
+    .then((body) => {
       spinner.stop();
-    }
-    console.log(`${chalk.red(amount)} BTC to ${chalk.cyan(currency)} = ${chalk.yellow(apiResponse.price)}`);
-  });
+      return body;
+    })
+    .then((body) => {
+      const apiResponse = JSON.parse(body);
+      console.info(`${chalk.red(amount)} BTC to ${chalk.cyan(currency)} = ${chalk.yellow(apiResponse.price)}`);
+    })
+    .catch((err) => {
+      spinner.stop();
+      console.info(chalk.red('Something went wrong in the API. Try in a few minutes.'));
+      return err;
+    });
 }
 
 module.exports = convertBTC;

@@ -9,7 +9,7 @@
     "build:watch": "npm run build -- --watch",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepublish": "npm run lint",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register --require babel-polyfill",
     "test:tdd": "npm run test -- --watch",
     "test:coverage": "nyc npm test"
   },
@@ -52,6 +52,7 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.9",
     "eslint": "^6.8.0",
@@ -70,6 +71,7 @@
     "commander": "^5.0.0",
     "dotenv": "^8.2.0",
     "ora": "^4.0.3",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8"
   }
 }

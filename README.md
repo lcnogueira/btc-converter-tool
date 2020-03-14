@@ -2,13 +2,9 @@
 
 A CLI to convert bitcoin to any provided currency.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Installing the CLI
 
-You can use this library in 2 ways: trough npm repository or by building the library locally. If you can't use it from the npm repository, try [generating a new API key](https://bitcoinaverage.com/) and building the library locally.
+You can use this library by 2 ways: trough npm repository or by building the library locally. If you can't use it from the npm repository, try [generating a new API key](https://bitcoinaverage.com/) and building the library locally.
 
 ### Installing from npm repository
 

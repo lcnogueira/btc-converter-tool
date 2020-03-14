@@ -4,7 +4,7 @@ var dotenv = require('dotenv');
 
 var chalk = require('chalk');
 
-var request = require('request');
+var request = require('request-promise-native');
 
 var ora = require('ora');
 
@@ -24,19 +24,16 @@ function convertBTC() {
     }
   };
   spinner.start();
-  request(options, function (error, response, body) {
-    var apiResponse;
-
-    try {
-      apiResponse = JSON.parse(body);
-    } catch (parseError) {
-      console.log(chalk.red('Something went wrong in the API. Try in a few minutes.'));
-      return parseError;
-    } finally {
-      spinner.stop();
-    }
-
-    console.log("".concat(chalk.red(amount), " BTC to ").concat(chalk.cyan(currency), " = ").concat(chalk.yellow(apiResponse.price)));
+  return request(options).then(function (body) {
+    spinner.stop();
+    return body;
+  }).then(function (body) {
+    var apiResponse = JSON.parse(body);
+    console.info("".concat(chalk.red(amount), " BTC to ").concat(chalk.cyan(currency), " = ").concat(chalk.yellow(apiResponse.price)));
+  })["catch"](function (err) {
+    spinner.stop();
+    console.info(chalk.red('Something went wrong in the API. Try in a few minutes.'));
+    return err;
   });
 }
 
