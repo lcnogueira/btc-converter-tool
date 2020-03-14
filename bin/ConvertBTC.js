@@ -1,12 +1,18 @@
 "use strict";
 
+var dotenv = require('dotenv');
+
 var chalk = require('chalk');
 
 var request = require('request');
 
-var dotenv = require('dotenv');
+var ora = require('ora');
 
 dotenv.config();
+var spinner = ora({
+  text: 'Retrieving Bitcoin data...',
+  color: 'yellow'
+});
 
 function convertBTC() {
   var currency = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'USD';
@@ -17,6 +23,7 @@ function convertBTC() {
       'x-ba-key': process.env.API_KEY
     }
   };
+  spinner.start();
   request(options, function (error, response, body) {
     var apiResponse;
 
@@ -25,6 +32,8 @@ function convertBTC() {
     } catch (parseError) {
       console.log(chalk.red('Something went wrong in the API. Try in a few minutes.'));
       return parseError;
+    } finally {
+      spinner.stop();
     }
 
     console.log("".concat(chalk.red(amount), " BTC to ").concat(chalk.cyan(currency), " = ").concat(chalk.yellow(apiResponse.price)));
