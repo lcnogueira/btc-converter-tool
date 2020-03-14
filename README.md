@@ -1,6 +1,8 @@
 # btc-converter-tool
 
-A CLI to convert bitcoin to any provided currency.
+[![NPM](https://img.shields.io/npm/v/btc-converter-tool.svg)](https://www.npmjs.com/package/btc-converter-tool) [![Build Status](https://travis-ci.com/lcnogueira/btc-converter-tool.svg?branch=master)](https://travis-ci.com/lcnogueira/btc-converter-tool) [![Coverage Status](https://coveralls.io/repos/github/lcnogueira/btc-converter-tool/badge.svg?branch=master)](https://coveralls.io/github/lcnogueira/btc-converter-tool?branch=master)
+
+> A CLI to convert bitcoin to any provided currency.
 
 ## Installing the CLI
 
