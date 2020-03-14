@@ -1,7 +1,7 @@
 {
   "name": "btc-converter-cli",
   "version": "1.0.0",
-  "description": "A CLI to convert bitcoint to any provided currency.",
+  "description": "A CLI to convert bitcoin to any provided currency.",
   "main": "index.js",
   "scripts": {
     "clear": "rimraf bin",
@@ -62,5 +62,7 @@
     "nyc": "^15.0.0",
     "rimraf": "^3.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^5.0.0"
+  }
 }

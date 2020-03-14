@@ -1,6 +1,6 @@
 # BTC Converter CLI
 
-A CLI to convert bitcoint to any provided currency.
+A CLI to convert bitcoin to any provided currency.
 
 ## Contributing
 
