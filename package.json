@@ -14,7 +14,7 @@
     "test:coverage": "nyc npm test"
   },
   "bin": {
-    "btc-converter": "bin/main.js"
+    "btc-converter-cli": "bin/main.js"
   },
   "nyc": {
     "reporter": [
